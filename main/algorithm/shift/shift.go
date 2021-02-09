@@ -12,6 +12,14 @@ type position struct {
 	curr uint
 }
 
+func (al alphabet) length() uint {
+	return uint(len(al.chars))
+}
+
+func (al alphabet) positionOf(ch byte) uint {
+	return uint(ch) - asciiInitialIndex
+}
+
 func getAlphabet() alphabet {
 	// byte array represents ASCII chars
 	// A = 65, ... , Z = 90
