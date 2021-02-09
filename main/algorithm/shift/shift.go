@@ -117,9 +117,11 @@ func getPosition(pos position) uint {
 	var newPos = int(pos.curr) + pos.key
 
 	if newPos >= length {
-		newPos -= length
+		newPos %= length
 	} else if newPos < 0 {
-		newPos = length + newPos
+		newPos *= -1
+		newPos %= length
+		newPos = length - newPos
 	}
 	return uint(newPos)
 }
