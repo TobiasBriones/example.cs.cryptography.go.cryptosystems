@@ -21,7 +21,7 @@ type position struct {
 //
 // C := string [A-Za-z]
 //
-// K := uint
+// K := uint K in [0, 25]
 //
 // E and D are not bijective functions and hence one is not the inverse of the
 // another. But they are bijective if and only if the input message is lowercase
