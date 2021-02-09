@@ -17,14 +17,15 @@ type position struct {
 // Encrypts the message with the given key using the Shift algorithm.
 // The implemented shift algorithm given by (P, C, K, E, D):
 //
-// P := string
+// P := string [A-Za-z]
 //
-// C := string
+// C := string [A-Za-z]
 //
 // K := uint
 //
 // E and D are not bijective functions and hence one is not the inverse of the
-// another.
+// another. But they are bijective if and only if the input message is lowercase
+// and not contains any whitespaces.
 //
 // The algorithm flow is as follows:
 //
