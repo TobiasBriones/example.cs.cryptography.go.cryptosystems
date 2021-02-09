@@ -14,12 +14,42 @@ type position struct {
 	curr uint
 }
 
+// Encrypts the message with the given key using the Shift algorithm.
+// The implemented shift algorithm given by (P, C, K, E, D):
+//
+// P := string
+//
+// C := string
+//
+// K := uint
+//
+// E and D are not bijective functions and hence one is not the inverse of the
+// another.
+//
+// The algorithm flow is as follows:
+//
+// Start
+//
+// 1. Transform msg into uppercase and remove whitespaces.
+//
+// 2. Shift right the amount of time indicated by the given key. It uses a
+// circular alphabet.
+//
+// 3. Transform into lowercase
+//
+// End
 func Encrypt(msg string, key uint) string {
 	var input = getInput(msg)
 	var shifted = shiftRight(input, key)
 	return strings.ToLower(shifted)
 }
 
+// Decrypts the given encrypted message using the Shift algorithm.
+// The decrypted message may not be like the exact original message since the
+// whitespaces and capitalization information is lost when encrypting. The
+// decrypted message is return in lowercase.
+//
+// See Encrypt
 func Decrypt(enc string, key uint) string {
 	var input = getInput(enc)
 	var shifted = shiftLeft(input, key)
