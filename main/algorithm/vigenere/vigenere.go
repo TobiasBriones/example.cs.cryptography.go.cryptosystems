@@ -22,3 +22,32 @@ func Encrypt(msg string, key []byte) string {
 	enc = strings.ToLower(enc)
 	return enc
 }
+
+func Decrypt(enc string, key []byte) string {
+	var msg = ""
+	var input = strings.ToUpper(enc)
+	var alphabet = algorithm.GetAlphabet()
+	var length = len(key)
+
+	for i, ch := range input {
+		var groupIndex = i % length
+		var keyCh = key[groupIndex]
+		var subtract = int(alphabet.CanonicalPositionOf(keyCh))
+		var summation = int(alphabet.CanonicalPositionOf(byte(ch)))
+		var code = norm(summation - subtract)
+		msg += string(alphabet.Chars[code])
+	}
+	msg = strings.ToLower(msg)
+	return msg
+}
+
+// Used to fix negative results, I took this function from the shift algorithm
+// since I solved that problem there before
+func norm(newPos int) int {
+	if newPos < 0 {
+		newPos *= -1
+		newPos %= 26
+		newPos = 26 - newPos
+	}
+	return newPos
+}
