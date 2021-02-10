@@ -46,6 +46,7 @@ type Pair struct {
 func Encrypt(msg string, fn E) string {
 	var enc = ""
 	var input = strings.ToUpper(msg)
+	input = strings.ReplaceAll(input, " ", "")
 
 	for _, ch := range input {
 		var x = byte(fn.alphabet.CanonicalPositionOf(byte(ch)))
