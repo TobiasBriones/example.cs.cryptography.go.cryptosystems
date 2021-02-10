@@ -39,6 +39,7 @@ func (d D) Apply(y byte) byte {
 func Encrypt(msg string, e E) string {
 	var enc = ""
 	var input = strings.ToUpper(msg)
+	input = strings.ReplaceAll(input, " ", "")
 
 	for _, ch := range input {
 		var x = byte(e.Image.CanonicalPositionOf(byte(ch)))
