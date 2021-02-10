@@ -25,6 +25,28 @@ func TestOneWordDecrypt(t *testing.T) {
 	}
 }
 
+func TestWordsWithWhitespaceEncrypt(t *testing.T) {
+	const msg = "This cipher text cannot be decrypted"
+	const expected = "mgzvyzlghcmhjmyxssfmnhahycdlmha"
+	var fn = getTestEncryptFunction()
+	var actual = Encrypt(msg, fn)
+
+	if actual != expected {
+		t.Fatalf(`Encryption of %q wrong: %q`, msg, actual)
+	}
+}
+
+func TestWordsWithWhitespaceDecrypt(t *testing.T) {
+	const enc = "mgzvyzlghcmhjmyxssfmnhahycdlmha"
+	const expected = "thisciphertextcannotbedecrypted"
+	var fn = getTestEncryptFunction().Inverse()
+	var actual = Decrypt(enc, fn)
+
+	if actual != expected {
+		t.Fatalf(`Decryption of %q wrong: %q`, enc, actual)
+	}
+}
+
 func getTestEncryptFunction() E {
 	return E{
 		Image: algorithm.Alphabet{
