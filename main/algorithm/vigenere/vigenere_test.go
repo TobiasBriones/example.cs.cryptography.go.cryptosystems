@@ -31,7 +31,7 @@ func TestOneWordDecrypt(t *testing.T) {
 }
 
 func TestWordsWithWhitespacesEncrypt(t *testing.T) {
-	var sample = getSampleWithWhistespaces()
+	var sample = getSampleWithWhitespaces()
 	var actual = Encrypt(sample.msg, sample.key)
 
 	if actual != sample.enc {
@@ -40,7 +40,7 @@ func TestWordsWithWhitespacesEncrypt(t *testing.T) {
 }
 
 func TestWordsWithWhitespacesDecrypt(t *testing.T) {
-	var sample = getSampleWithWhistespaces()
+	var sample = getSampleWithWhitespaces()
 	var actual = Decrypt(sample.enc, sample.key)
 
 	if actual != sample.msg {
@@ -56,7 +56,7 @@ func getSample() sample {
 	}
 }
 
-func getSampleWithWhistespaces() sample {
+func getSampleWithWhitespaces() sample {
 	return sample{
 		key: []byte{'C', 'I', 'P', 'H', 'E', 'R'},
 		msg: "This cryptosystem is not secure",
