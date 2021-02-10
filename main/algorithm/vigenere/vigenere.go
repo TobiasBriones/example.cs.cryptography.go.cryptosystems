@@ -9,6 +9,7 @@ func Encrypt(msg string, key []byte) string {
 	var input = strings.ToUpper(msg)
 	var alphabet = algorithm.GetAlphabet()
 	var m = byte(alphabet.Length())
+	input = strings.ReplaceAll(input, " ", "")
 
 	for i, ch := range input {
 		var code = alphabet.CanonicalPositionOf(byte(ch))
