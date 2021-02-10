@@ -1,6 +1,9 @@
 package vigenere
 
-import "testing"
+import (
+	"strings"
+	"testing"
+)
 
 type sample struct {
 	key []byte
@@ -41,9 +44,14 @@ func TestWordsWithWhitespacesEncrypt(t *testing.T) {
 
 func TestWordsWithWhitespacesDecrypt(t *testing.T) {
 	var sample = getSampleWithWhitespaces()
+
+	// Remember this program deletes information about whitespaces and uppercase
+	// when the message was encrypted
+	var expected = strings.ReplaceAll(strings.ToLower(sample.msg), " ", "")
+
 	var actual = Decrypt(sample.enc, sample.key)
 
-	if actual != sample.msg {
+	if actual != expected {
 		t.Fatalf(`Decryption of %q wrong: %q`, sample.enc, actual)
 	}
 }
