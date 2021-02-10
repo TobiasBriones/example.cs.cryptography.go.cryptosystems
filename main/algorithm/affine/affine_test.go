@@ -35,6 +35,37 @@ func TestOneWordDecrypt(t *testing.T) {
 	}
 }
 
+func TestWordsWithWhitespacesEncrypt(t *testing.T) {
+	const msg = "Hot dog"
+	const expected = "axgyxt"
+	var fn, err = getTestEncryptFunction()
+
+	if err != nil {
+		t.Fatal("Couldn't set valid Pair to E function")
+	}
+	var actual = Encrypt(msg, fn)
+
+	if actual != expected {
+		t.Fatalf(`Encryption of %q wrong: %q`, msg, actual)
+	}
+}
+
+func TestWordsWithWhitespacesDecrypt(t *testing.T) {
+	const enc = "axgyxt"
+	const expected = "hotdog"
+	var e, err = getTestEncryptFunction()
+
+	if err != nil {
+		t.Fatal("Couldn't set valid Pair to E function")
+	}
+	var fn = e.Inverse()
+	var actual = Decrypt(enc, fn)
+
+	if actual != expected {
+		t.Fatalf(`Decryption of %q wrong: %q`, enc, actual)
+	}
+}
+
 func TestNotAcceptInvalidPair(t *testing.T) {
 	var _, err = getInvalidTestEncryptFunction()
 
