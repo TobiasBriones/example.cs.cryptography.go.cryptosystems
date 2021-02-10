@@ -59,6 +59,19 @@ func Encrypt(msg string, fn E) string {
 	return enc
 }
 
+func Decrypt(enc string, fn D) string {
+	var msg = ""
+	var input = strings.ToUpper(enc)
+
+	for _, ch := range input {
+		var y = byte(fn.alphabet.CanonicalPositionOf(byte(ch)))
+		var x = fn.Apply(y)
+		msg += string(fn.alphabet.Chars[x])
+	}
+	msg = strings.ToLower(msg)
+	return msg
+}
+
 func modInverseIfCoprime(a int, m int) int {
 	var x int
 	var y int
