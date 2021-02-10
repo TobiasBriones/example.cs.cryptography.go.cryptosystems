@@ -3,6 +3,7 @@ package affine
 import (
 	math "../../algorithm"
 	"errors"
+	"strings"
 )
 
 type E struct {
@@ -40,4 +41,17 @@ func (d *D) Apply(y byte) byte {
 type Pair struct {
 	A byte
 	B byte
+}
+
+func Encrypt(msg string, fn E) string {
+	var enc = ""
+	var input = strings.ToUpper(msg)
+
+	for _, ch := range input {
+		var x = byte(fn.alphabet.CanonicalPositionOf(byte(ch)))
+		var y = fn.Apply(x)
+		enc += string(fn.alphabet.Chars[y])
+	}
+	enc = strings.ToLower(enc)
+	return enc
 }
