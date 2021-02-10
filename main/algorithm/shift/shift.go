@@ -79,7 +79,7 @@ func shift(str string, key int) string {
 		curr: 0,
 	}
 	for _, ch := range str {
-		position.curr = alphabet.PositionOf(byte(ch))
+		position.curr = alphabet.CanonicalPositionOf(byte(ch))
 		var newPos = getPosition(position)
 
 		shifted += string(chars[newPos])

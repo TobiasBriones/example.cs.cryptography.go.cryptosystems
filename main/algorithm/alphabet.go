@@ -10,7 +10,7 @@ func (al Alphabet) Length() uint {
 	return uint(len(al.Chars))
 }
 
-func (al Alphabet) PositionOf(ch byte) uint {
+func (al Alphabet) CanonicalPositionOf(ch byte) uint {
 	return uint(ch) - asciiInitialIndex
 }
 
