@@ -34,8 +34,10 @@ type D struct {
 }
 
 func (d *D) Apply(y byte) byte {
-	var aInverse = 26 - d.Pair.A
-	return aInverse * (y - d.Pair.B) % 26
+	var aInverse = modInverseIfCoprime(int(d.Pair.A), 26)
+	var yInt = int(y)
+	var bInt = int(d.Pair.B)
+	return byte(norm(aInverse * (yInt - bInt) % 26))
 }
 
 type Pair struct {
@@ -55,4 +57,36 @@ func Encrypt(msg string, fn E) string {
 	}
 	enc = strings.ToLower(enc)
 	return enc
+}
+
+func modInverseIfCoprime(a int, m int) int {
+	var x int
+	var y int
+	gcd(a, m, &x, &y) // gcd must be 1 by hypothesis
+	return (x%m + m) % m
+}
+
+func gcd(a int, b int, x *int, y *int) int {
+	if a == 0 {
+		*x = 0
+		*y = 1
+		return b
+	}
+	var x1 int
+	var y1 int
+	var gcd = gcd(b%a, a, &x1, &y1)
+	*x = y1 - (b/a)*x1
+	*y = x1
+	return gcd
+}
+
+// Used to fix negative results, I took this function from the shift algorithm
+// since I solved that problem there before
+func norm(newPos int) int {
+	if newPos < 0 {
+		newPos *= -1
+		newPos %= 26
+		newPos = 26 - newPos
+	}
+	return newPos
 }
