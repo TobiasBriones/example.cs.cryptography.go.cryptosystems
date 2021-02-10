@@ -67,7 +67,7 @@ func getSample() sample {
 func getSampleWithWhitespaces() sample {
 	return sample{
 		key: []byte{'C', 'I', 'P', 'H', 'E', 'R'},
-		msg: "This cryptosystem is not secure",
+		msg: "This crypto system is not secure",
 		enc: "vpxzgiaxivwpubttmjpwizitwzt",
 	}
 }
