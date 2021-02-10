@@ -2,6 +2,7 @@ package substitution
 
 import (
 	"../../algorithm"
+	"strings"
 )
 
 type E struct {
@@ -33,4 +34,28 @@ type D struct {
 
 func (d D) Apply(y byte) byte {
 	return d.Image.Chars[y]
+}
+
+func Encrypt(msg string, e E) string {
+	var enc = ""
+	var input = strings.ToUpper(msg)
+
+	for _, ch := range input {
+		var x = byte(e.Image.CanonicalPositionOf(byte(ch)))
+		enc += string(e.Apply(x))
+	}
+	enc = strings.ToLower(enc)
+	return enc
+}
+
+func Decrypt(enc string, d D) string {
+	var msg = ""
+	var input = strings.ToUpper(enc)
+
+	for _, ch := range input {
+		var y = byte(d.Image.CanonicalPositionOf(byte(ch)))
+		msg += string(d.Apply(y))
+	}
+	msg = strings.ToLower(msg)
+	return msg
 }
