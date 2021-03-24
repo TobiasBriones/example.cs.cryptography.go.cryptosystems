@@ -1,7 +1,9 @@
 package vigenere
 
-import "strings"
-import "../../algorithm"
+import (
+	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
+	"strings"
+)
 
 func Encrypt(msg string, key []byte) string {
 	var enc = ""

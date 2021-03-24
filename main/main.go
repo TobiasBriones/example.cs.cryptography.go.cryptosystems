@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
 	"strings"
 )
-import "./algorithm"
 
 func main() {
 	fmt.Println("Hello World")

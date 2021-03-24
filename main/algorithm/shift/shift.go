@@ -1,7 +1,9 @@
 package shift
 
-import "strings"
-import "../../algorithm"
+import (
+	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
+	"strings"
+)
 
 type position struct {
 	key  int

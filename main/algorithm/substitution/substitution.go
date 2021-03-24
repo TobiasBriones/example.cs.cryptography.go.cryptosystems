@@ -1,7 +1,7 @@
 package substitution
 
 import (
-	"../../algorithm"
+	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
 	"strings"
 )
 

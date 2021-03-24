@@ -1,9 +1,10 @@
 package affine
 
 import (
-	math "../../algorithm"
 	"errors"
 	"strings"
+
+	math "github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
 )
 
 type E struct {

@@ -1,7 +1,9 @@
 package substitution
 
-import "testing"
-import "../../algorithm"
+import (
+	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
+	"testing"
+)
 
 func TestOneWordEncrypt(t *testing.T) {
 	const msg = "thisciphertextcannotbedecrypted"
