@@ -11,7 +11,7 @@ type position struct {
 	curr uint
 }
 
-// Encrypts the message with the given key using the Shift algorithm.
+// Encrypt Encrypts the message with the given key using the Shift algorithm.
 // The implemented shift algorithm given by (P, C, K, E, D):
 //
 // P := string [A-Za-z]
@@ -42,7 +42,7 @@ func Encrypt(msg string, key uint) string {
 	return strings.ToLower(shifted)
 }
 
-// Decrypts the given encrypted message using the Shift algorithm.
+// Decrypt Decrypts the given encrypted message using the Shift algorithm.
 // The decrypted message may not be like the exact original message since the
 // whitespaces and capitalization information is lost when encrypting. The
 // decrypted message is return in lowercase.
