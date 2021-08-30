@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	math "github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
+	math "github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
 )
 
 type E struct {

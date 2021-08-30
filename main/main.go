@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems/main/algorithm"
+	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
 	"strings"
 )
 

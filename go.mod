@@ -1,3 +1,3 @@
-module github.com/TobiasBriones/example.cs.cryptography.go.cryptosystems
+module github.com/tobiasbriones/ep-cryptosystems
 
 go 1.16
