@@ -10,6 +10,9 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
+// Package affine provides the data structures and implementation of the classical Affine cipher algorithm.
+//
+// Author: Tobias Briones
 package affine
 
 import (

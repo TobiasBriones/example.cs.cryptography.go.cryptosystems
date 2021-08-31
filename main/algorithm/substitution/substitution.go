@@ -10,6 +10,9 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
+// Package substitution provides the data structures and implementation of the classical Substitution cipher algorithm.
+//
+// Author: Tobias Briones
 package substitution
 
 import (

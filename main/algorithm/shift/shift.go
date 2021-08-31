@@ -10,6 +10,9 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
+// Package shift provides the implementation of the classical Shift cipher algorithm.
+//
+// Author: Tobias Briones
 package shift
 
 import (

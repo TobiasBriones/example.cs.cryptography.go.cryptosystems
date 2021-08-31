@@ -10,6 +10,9 @@
  * https://opensource.org/licenses/BSD-3-Clause.
  */
 
+// Package vigenere provides the implementation of the classical Vigenere cipher algorithm.
+//
+// Author: Tobias Briones
 package vigenere
 
 import (

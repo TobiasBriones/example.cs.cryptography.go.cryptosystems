@@ -14,6 +14,7 @@ package algorithm
 
 const asciiInitialIndex = 65
 
+// Alphabet Defines the English data structure alphabet representing the integers modulo 26.
 type Alphabet struct {
 	Chars []byte
 }
