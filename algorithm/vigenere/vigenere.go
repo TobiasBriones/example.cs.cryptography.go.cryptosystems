@@ -16,7 +16,7 @@
 package vigenere
 
 import (
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
+	algorithm2 "github.com/tobiasbriones/ep-cryptosystems/algorithm"
 	"strings"
 )
 
@@ -24,7 +24,7 @@ func Encrypt(msg string, key []byte) string {
 	var enc = ""
 	var length = len(key)
 	var input = strings.ToUpper(msg)
-	var alphabet = algorithm.GetAlphabet()
+	var alphabet = algorithm2.GetAlphabet()
 	var m = byte(alphabet.Length())
 	input = strings.ReplaceAll(input, " ", "")
 
@@ -43,7 +43,7 @@ func Encrypt(msg string, key []byte) string {
 func Decrypt(enc string, key []byte) string {
 	var msg = ""
 	var input = strings.ToUpper(enc)
-	var alphabet = algorithm.GetAlphabet()
+	var alphabet = algorithm2.GetAlphabet()
 	var length = len(key)
 
 	for i, ch := range input {

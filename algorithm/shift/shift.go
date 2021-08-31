@@ -16,7 +16,7 @@
 package shift
 
 import (
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
+	algorithm2 "github.com/tobiasbriones/ep-cryptosystems/algorithm"
 	"strings"
 )
 
@@ -87,7 +87,7 @@ func shiftLeft(msg string, key uint) string {
 }
 
 func shift(str string, key int) string {
-	var alphabet = algorithm.GetAlphabet()
+	var alphabet = algorithm2.GetAlphabet()
 	var chars = alphabet.Chars
 	var shifted = ""
 	var position = position{

@@ -17,22 +17,21 @@ package affine
 
 import (
 	"errors"
+	"github.com/tobiasbriones/ep-cryptosystems/algorithm"
 	"strings"
-
-	math "github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
 )
 
 type E struct {
 	Pair     Pair
-	alphabet math.Alphabet
+	alphabet algorithm.Alphabet
 }
 
 func (e *E) Set(pair Pair) error {
-	if math.Gcd(int(pair.A), 26) != 1 {
+	if algorithm.Gcd(int(pair.A), 26) != 1 {
 		return errors.New("A and 26 must be relatively prime")
 	}
 	e.Pair = pair
-	e.alphabet = math.GetAlphabet()
+	e.alphabet = algorithm.GetAlphabet()
 	return nil
 }
 
@@ -41,12 +40,12 @@ func (e *E) Apply(x byte) byte {
 }
 
 func (e *E) Inverse() D {
-	return D{e.Pair, math.GetAlphabet()}
+	return D{e.Pair, algorithm.GetAlphabet()}
 }
 
 type D struct {
 	Pair     Pair
-	alphabet math.Alphabet
+	alphabet algorithm.Alphabet
 }
 
 func (d *D) Apply(y byte) byte {

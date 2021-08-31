@@ -13,7 +13,7 @@
 package substitution
 
 import (
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
+	algorithm2 "github.com/tobiasbriones/ep-cryptosystems/algorithm"
 	"testing"
 )
 
@@ -63,7 +63,7 @@ func TestWordsWithWhitespaceDecrypt(t *testing.T) {
 
 func getTestEncryptFunction() E {
 	return E{
-		Image: algorithm.Alphabet{
+		Image: algorithm2.Alphabet{
 			Chars: []byte{
 				'X', 'N', 'Y', 'A', 'H', 'P', 'O', 'G',
 				'Z', 'Q', 'W', 'B', 'T', 'S', 'F', 'L',

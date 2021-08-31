@@ -16,12 +16,12 @@
 package substitution
 
 import (
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
+	algorithm2 "github.com/tobiasbriones/ep-cryptosystems/algorithm"
 	"strings"
 )
 
 type E struct {
-	Image algorithm.Alphabet
+	Image algorithm2.Alphabet
 }
 
 func (e E) Apply(x byte) byte {
@@ -31,8 +31,8 @@ func (e E) Apply(x byte) byte {
 func (e E) Inverse() D {
 	var d = D{}
 	var image = e.Image
-	var alphabet = algorithm.GetAlphabet()
-	var inverseImage = algorithm.GetAlphabet()
+	var alphabet = algorithm2.GetAlphabet()
+	var inverseImage = algorithm2.GetAlphabet()
 
 	for i, ch := range image.Chars {
 		var pos = image.CanonicalPositionOf(ch)
@@ -44,7 +44,7 @@ func (e E) Inverse() D {
 }
 
 type D struct {
-	Image algorithm.Alphabet
+	Image algorithm2.Alphabet
 }
 
 func (d D) Apply(y byte) byte {

@@ -14,7 +14,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm/shift"
+	shift2 "github.com/tobiasbriones/ep-cryptosystems/algorithm/shift"
 )
 
 // Encrypts a message with the shift cipher.
@@ -22,7 +22,7 @@ import (
 func main() {
 	const key = 3
 	const msg = "cryptosystems"
-	var enc = shift.Encrypt(msg, key)
+	var enc = shift2.Encrypt(msg, key)
 
 	fmt.Println("The message \"" + msg + "\" encrypted by the shift algorithm with key=3 is: " + enc)
 }
