@@ -14,21 +14,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm"
-	"strings"
+	"github.com/tobiasbriones/ep-cryptosystems/main/algorithm/shift"
 )
 
+// Encrypts a message with the shift cipher.
+// More use cases available on the test files.
 func main() {
-	fmt.Println("Hello World")
-	var a = []byte{
-		21, 15, 23, 25, 6, 8, 0, 23, 8, 21, 22, 15, 20, 1, 19, 19, 12, 9, 15, 22, 8, 25, 8, 19, 22, 25, 19,
-	}
-	var al = algorithm.GetAlphabet()
-	var enc = ""
+	const key = 3
+	const msg = "cryptosystems"
+	var enc = shift.Encrypt(msg, key)
 
-	for _, v := range a {
-		enc += string(al.Chars[v])
-	}
-	enc = strings.ToLower(enc)
-	fmt.Println(enc)
+	fmt.Println("The message \"" + msg + "\" encrypted by the shift algorithm with key=3 is: " + enc)
 }
