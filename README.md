@@ -8,6 +8,26 @@
 
 Example project for cryptosystem algorithms implemented in Go.
 
+The available algorithms are:
+
+- [Affine](algorithm/affine)
+
+- [Shift](algorithm/shift)
+
+- [Substitution](algorithm/substitution)
+
+- [Vigenere](algorithm/vigenere)
+
+## Getting started
+
+Run the main function with `go run main.go` which will give the output:
+
+> The message "cryptosystems" encrypted by the shift algorithm with key=3 is: fubswrvbvwhpv
+
+Check out the test files for more documentation.
+
+Run all the tests with `go test ./...`.
+
 ## Contact
 
 This project: [Docs](https://tobiasbriones.github.io/ep-cryptosystems),
