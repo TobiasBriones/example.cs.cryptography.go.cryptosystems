@@ -11,11 +11,8 @@ Example project for cryptosystem algorithms implemented in Go.
 The available algorithms are:
 
 - [Affine](algorithm/affine)
-
 - [Shift](algorithm/shift)
-
 - [Substitution](algorithm/substitution)
-
 - [Vigenere](algorithm/vigenere)
 
 ## Getting started
